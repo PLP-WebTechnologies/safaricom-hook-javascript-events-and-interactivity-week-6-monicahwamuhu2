@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Elements and Form Validation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            transition: background-color 0.5s ease;
+        }
+        .hidden {
+            display: none;
+        }
+        .modal {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            display: none;
+        }
+        .modal .close-btn {
+            background-color: #f44336;
+            color: white;
+            padding: 5px 10px;
+            border: none;
+            cursor: pointer;
+        }
+        .error {
+            color: red;
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Interactive Elements and Form Validation</h1>
+
+    <!-- Button to Toggle Background Color -->
+    <button onclick="toggleBackgroundColor()">Toggle Background Color</button>
+
+    <!-- Slider for Real-Time Feedback -->
+    <br><br>
+    <label for="textSizeSlider">Adjust Text Size: </label>
+    <input type="range" id="textSizeSlider" min="12" max="72" value="16" oninput="updateTextSize()">
+    <p id="textSizeDisplay">This is a paragraph with adjustable text size.</p>
+
+    <!-- Modal -->
+    <button onclick="openModal()">Open Modal</button>
+    <div id="myModal" class="modal">
+        <span class="close-btn" onclick="closeModal()">Close</span>
+        <p>This is a modal window.</p>
+    </div>
+
+    <!-- Form with Validation -->
+    <form id="myForm">
+        <h2>Sign Up</h2>
+        <label for="name">Name (Min. 3 characters):</label>
+        <input type="text" id="name" required>
+        <div id="nameError" class="error"></div>
+        <br><br>
+        <label for="email">Email:</label>
+        <input type="email" id="email" required>
+        <div id="emailError" class="error"></div>
+        <br><br>
+        <label for="password">Password (Min. 8 characters, 1 uppercase, 1 number):</label>
+        <input type="password" id="password" required>
+        <div id="passwordError" class="error"></div>
+        <br><br>
+        <button type="submit">Submit</button>
+    </form>
+
+    <!-- Dropdown with Custom Message -->
+    <br><br>
+    <label for="dropdown">Choose an option:</label>
+    <select id="dropdown" onchange="displayMessage()">
+        <option value="">Select...</option>
+        <option value="option1">Option 1</option>
+        <option value="option2">Option 2</option>
+    </select>
+    <p id="dropdownMessage"></p>
+
+    <script src="script.js"></script>
+</body>
+</html>
